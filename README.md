@@ -70,18 +70,19 @@ GrainTCPV1 是一个部署在 Cloudflare 上的代理节点管理系统，提供
 
 ## 界面预览
 
-**后台管理面板（Snippets 版）：**
+**Snippets 版：**
 
-<img width="1920" alt="后台面板" src="https://github.com/user-attachments/assets/c066513e-27aa-4a8d-a4a1-61d377b74142" />
-<img width="1920" alt="订阅管理" src="https://github.com/user-attachments/assets/b2fc6d97-3ba3-461b-9056-48db24b6e6ee" />
+<img width="1920" alt="Snippets登录页" src="./issue/snippets展示/snippets登录页.png" />
+<img width="1920" alt="Snippets管理页面" src="./issue/snippets展示/snippets管理页面.png" />
 
-**后台管理面板（Worker 版）：**
+**Worker 版：**
 
-<img width="1914" alt="Worker后台" src="https://github.com/user-attachments/assets/16f1042d-008a-4bf0-bfa5-a26eb5ceee69" />
-<img width="1916" alt="Worker白名单" src="https://github.com/user-attachments/assets/f87c1b8a-6f80-4bbd-9aa1-717bb120301d" />
-<img width="1913" alt="Worker日志" src="https://github.com/user-attachments/assets/592442d4-9f60-49ab-b42c-dc097e8fa35f" />
-<img width="1914" alt="Worker配置" src="https://github.com/user-attachments/assets/56a879cf-d331-44dc-a5bd-5ba2a078432c" />
-<img width="1920" alt="Worker主题" src="https://github.com/user-attachments/assets/912adef1-0b76-428b-8700-afee562611ce" />
+<img width="1920" alt="Worker登录页" src="./issue/worker展示/登录页.png" />
+<img width="1920" alt="Worker控制台" src="./issue/worker展示/控制台展示.png" />
+<img width="1920" alt="Worker订阅页面" src="./issue/worker展示/订阅页面.png" />
+<img width="1920" alt="Worker白名单" src="./issue/worker展示/白名单页面.png" />
+<img width="1920" alt="Worker日志" src="./issue/worker展示/日志详情页面.png" />
+<img width="1920" alt="Worker网络信息" src="./issue/worker展示/网络信息.png" />
 
 ---
 
@@ -97,14 +98,16 @@ GrainTCPV1 是一个部署在 Cloudflare 上的代理节点管理系统，提供
 2. 左侧菜单进入 **Workers & Pages** → 点击右上角 **创建**
 3. 选择 **Hello World** 模板 → 点击 **部署**
 
-<img width="800" alt="选择Hello World模板" src="https://github.com/user-attachments/assets/2b80a97b-ee57-42a8-be1a-8180254f54dc" />
-<img width="800" alt="输入名称部署" src="https://github.com/user-attachments/assets/b26217ed-d17c-465d-bcbd-b232ab5a4fd0" />
+<img width="800" alt="创建Worker" src="./issue/worker部署教程/创建worker.png" />
 
 4. 部署完成后，在 Workers 列表找到刚部署的项目，点击 **编辑代码**
 
-<img width="800" alt="编辑代码" src="https://github.com/user-attachments/assets/a7f0c75a-56c3-467b-a07f-d37cafb8dd6c" />
+<img width="800" alt="部署Worker" src="./issue/worker部署教程/部署worker.png" />
 
 5. 按 `Ctrl+A` 全选 → 删除 → 粘贴 `worker.js` 全部代码
+
+<img width="800" alt="修改Worker代码" src="./issue/worker部署教程/修改worker代码.png" />
+
 6. 点击右上角 **保存并部署**
 7. 回到 Worker 概览页 → 进入 **设置 → 变量和机密**
 8. 添加环境变量（最少填：`UUID`、`WEB_PASSWORD`、`SUB_PASSWORD`）
@@ -173,30 +176,35 @@ CREATE TABLE IF NOT EXISTS stats (date TEXT PRIMARY KEY, count INTEGER DEFAULT 0
 1. 登录 Cloudflare Dashboard
 2. 选择你已接入的域名
 
-<img width="800" alt="选择域名" src="https://github.com/user-attachments/assets/2483c2b7-3bb2-4cac-bdd6-38f8b31f4329" />
+<img width="800" alt="找到有Snippets的域名" src="./issue/snippets教程/找到有snippets的域名.png" />
 
 3. 左侧菜单进入 **规则 → Snippets** → 点击 **创建片段**
 
-<img width="800" alt="创建Snippet" src="https://github.com/user-attachments/assets/9059a47d-77da-4ba4-82cc-03e8a8638c0f" />
+<img width="800" alt="在Snippets页面创建片段" src="./issue/snippets教程/在snippets页面创建片段.png" />
 
 4. 输入片段名称（随意，如 `graintcp`）
+
+<img width="800" alt="输入创建片段的名字" src="./issue/snippets教程/输入创建片段的名字.png" />
+
 5. 粘贴 `snippets.js` 全部代码
 6. **修改顶部配置区**（UUID、密码、ProxyIP 等改成你自己的值）
 
-<img width="800" alt="粘贴代码" src="https://github.com/user-attachments/assets/f163e9ef-989b-4645-8ebc-eadf755f4b23" />
+<img width="800" alt="编辑Snippets代码" src="./issue/snippets教程/编辑snippets代码.png" />
 
 7. 在下方 **触发规则** 中设置匹配条件：
    - 字段：`主机名 (Hostname)`
    - 运算符：`等于 (equals)`
    - 值：你的子域名（如 `sub.yourdomain.com`）
 
-<img width="800" alt="触发规则" src="https://github.com/user-attachments/assets/1f858efe-a6ce-4bf6-8d62-0bfc462ef2b3" />
+<img width="800" alt="设置自定义筛选表达式" src="./issue/snippets教程/设置自定义筛选表达式.png" />
 
-8. 点击 **创建片段** 保存
+8. 点击 **启用片段规则** 保存
+
+<img width="800" alt="启用片段规则" src="./issue/snippets教程/启用片段规则.png" />
 
 9. **配置 DNS（重要）**：前往 DNS 设置页 → 添加 A 记录 → 名称填子域名 → IPv4 填 `192.0.2.1` → 代理状态开启橙色云朵
 
-<img width="600" alt="DNS配置" src="https://github.com/user-attachments/assets/f88ad346-30aa-41ef-9f7c-deb2453afbfe" />
+<img width="800" alt="创建新代理DNS记录指向" src="./issue/snippets教程/创建新代理DNS记录指向.png" />
 
 **注意事项**：
 - Snippets 没有环境变量功能，所有配置直接改代码顶部
@@ -211,15 +219,41 @@ CREATE TABLE IF NOT EXISTS stats (date TEXT PRIMARY KEY, count INTEGER DEFAULT 0
 2. 将该文件放入一个空文件夹（如 `graintcp/`）
 3. 进入 **Workers & Pages** → **创建** → 选择 **Pages**
 
-<img width="800" alt="Pages入口" src="https://github.com/user-attachments/assets/6ddd7c84-4a4f-4ddc-bd41-f2d550139999" />
+<img width="800" alt="Cloudflare主页" src="./issue/pages部署教程/cloudflare主页-计算workers和pages.png" />
+<img width="800" alt="Pages创建应用程序" src="./issue/pages部署教程/pages创建应用程序.png" />
 
-4. 选择 **直接上传** → 上传该文件夹或 ZIP 压缩包
+**方法 A：GitHub 自动同步（推荐）**
 
-<img width="800" alt="上传文件" src="https://github.com/user-attachments/assets/5dec9d85-9fcb-4b95-89c6-a7d8c57be661" />
+4. 选择 **导入现有 Git 存储库**
 
-5. 点击 **部署站点**
-6. 部署后进入 Pages 项目 **设置** → 添加环境变量和 D1 绑定
-7. 重新部署使配置生效
+<img width="800" alt="选择导入现有git存储库" src="./issue/pages部署教程/选择导入现有git存储库.png" />
+<img width="800" alt="创建Pages导入现有git存储库" src="./issue/pages部署教程/创建pages，导入现有git存储库.png" />
+
+5. 选择 GitHub 账户 → 选择你 Fork 的项目
+
+<img width="800" alt="选择存储库" src="./issue/pages部署教程/选择存储库，选择github账户，选择fork的项目。.png" />
+
+6. 写入项目名称并部署
+
+<img width="800" alt="创建Pages项目名字并部署" src="./issue/pages部署教程/创建pages项目名字。部署.png" />
+<img width="800" alt="部署Pages页面" src="./issue/pages部署教程/部署pages页面.png" />
+
+**方法 B：直接上传**
+
+4. 选择 **上传部署**
+
+<img width="800" alt="选择上传部署" src="./issue/pages部署教程/github上传部署/选择上传部署.png" />
+
+5. 写入项目名称并创建项目
+
+<img width="800" alt="写入项目名称并创建项目" src="./issue/pages部署教程/github上传部署/写入项目名称并创建项目.png" />
+
+6. 上传包含 `_worker.js` 的 ZIP 压缩包或文件夹 → 点击 **部署站点**
+
+<img width="800" alt="选择项目zip包并部署" src="./issue/pages部署教程/github上传部署/选择下载好的项目zip包或者是文件夹，并部署站点。.png" />
+
+7. 部署后进入 Pages 项目 **设置** → 添加环境变量和 D1 绑定
+8. 重新部署使配置生效
 
 ---
 
