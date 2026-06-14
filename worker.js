@@ -3376,6 +3376,9 @@ function dashPage(host, uuid, proxyip, subpass, subdomain, converter, env, clien
                     <div style="font-size:0.8rem;color:var(--danger);margin-bottom:15px;padding:10px;background:rgba(255,0,64,0.1);border-left:3px solid var(--danger)">
                         ⚠️ 注意：若要在此生效，请确保 Cloudflare 后台未设置对应环境变量 (ADD/ADDAPI/ADDCSV)
                     </div>
+                    <div style="font-size:0.8rem;color:var(--danger);margin-bottom:15px;padding:10px;background:rgba(255,0,64,0.1);border-left:3px solid var(--danger)">
+                        ⚠️ 注意：若要在此生效，请确保 Cloudflare 后台或者硬编码未设置SUB订阅器 (详情顶部配置DEFAULT_SUB_DOMAIN)
+                    </div>
                     <div class="input-block">
                         <label>ADD - 本地优选 IP (格式: IP:Port#Name，一行一个)</label>
                         <textarea id="inpAdd" placeholder="1.1.1.1:443#US">${safeVal(add)}</textarea>
